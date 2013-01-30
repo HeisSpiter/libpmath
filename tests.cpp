@@ -196,6 +196,12 @@ int main(int, char **)
     k = -8;
     k /= 3;
     test_ok(k, -2);
+    k = 8;
+    k /= -3;
+    test_ok(k, -2);
+    k = -8;
+    k /= -3;
+    test_ok(k, 2);
 
     i = 4;
     i = i.Divide(3, &j);
