@@ -67,8 +67,8 @@ Div:
 	push	rdx
 	/* Move dividend to eax */
 	mov		eax, [rcx]
-	/* Zero rdx (unused) */
-	xor		rdx, rdx
+	/* Extend eax on 64bits */
+	cltd
 	/* Divide using ebx */
 	idiv	ebx
 	/* Move remainder in buffer */
