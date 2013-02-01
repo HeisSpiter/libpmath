@@ -25,7 +25,7 @@ unsigned int gFailed = 0;
     std::cout << gFailed << " failed" << std::endl
 
 #define test_try(i) \
-    gRun++;          \
+    gRun++;         \
     gTryFailed = i
 
 #define test_try_set(i) \
@@ -35,7 +35,7 @@ unsigned int gFailed = 0;
     if (gTryFailed) {                                    \
         std::cout << "(" << __FILE__ << ":" << __LINE__; \
         std::cout << ") Try test failed." << std::endl;  \
-        gFailed++;                                        \
+        gFailed++;                                       \
     }
 
 int main(int, char **)
@@ -212,6 +212,23 @@ int main(int, char **)
     i = i.Divide(2, &j);
     test_ok(i, 3);
     test_ok(j, 0);
+
+    i = 6;
+    test_ok(i >> 1, 3);
+    test_ok(i << 2, 24);
+    k = 1;
+    test_ok(i >> k, 3);
+    k = 2;
+    test_ok(i << k, 24);
+
+    i <<= 1;
+    test_ok(i, 12);
+    i <<= k;
+    test_ok(i, 48);
+    i >>= 1;
+    test_ok(i, 24);
+    i >>= k;
+    test_ok(i, 6);
 
     test_end();
 

@@ -67,6 +67,28 @@ public:
         return old;
     }
 
+    int32_t operator<<(int32_t a) const { return fValue << a; }
+    int32_t operator<<(const TInteger& a) const { return (*this)<<(a.fValue); }
+
+    TInteger& operator<<=(int32_t a)
+    {
+        fValue = (*this)<<(a);
+        return *this;
+    }
+
+    TInteger& operator<<=(const TInteger& a) { return (*this)<<=(a.fValue); }
+
+    int32_t operator>>(int32_t a) const { return fValue >> a; }
+    int32_t operator>>(const TInteger& a) const { return (*this)>>(a.fValue); }
+
+    TInteger& operator>>=(int32_t a)
+    {
+        fValue = (*this)>>(a);
+        return *this;
+    }
+
+    TInteger& operator>>=(const TInteger& a) { return (*this)>>=(a.fValue); }
+
     bool operator>(int32_t a) const { return (fValue > a); }
     bool operator>(const TInteger& a) const { return (*this)>(a.fValue); }
     bool operator<(int32_t a) const { return (fValue < a); }
