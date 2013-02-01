@@ -41,7 +41,7 @@ public:
     TInteger& operator+=(const TInteger& a) { return (*this)+=(a.fValue); }
     TInteger& operator++() { return (*this)+=(1); }
 
-    TInteger operator++(int32_t unused)
+    TInteger operator++(int unused)
     {
         TInteger old = *this;
         (*this)+=(1);
@@ -60,7 +60,7 @@ public:
     TInteger& operator-=(const TInteger& a) { return (*this)-=(a.fValue); }
     TInteger& operator--() { return (*this)-=(1); }
 
-    TInteger operator--(int32_t unused)
+    TInteger operator--(int unused)
     {
         TInteger old = *this;
         (*this)-=(1);
