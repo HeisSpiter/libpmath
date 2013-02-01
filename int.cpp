@@ -15,7 +15,7 @@ int32_t TInteger::Divide(int32_t divisor, int32_t * reminder) const throw(TNullD
     }
 
     *reminder = fValue;
-    __asm__ __volatile__("call Div\n"
+    __asm__ __volatile__("call Div32\n"
                          : "=a"(res), "=c"(reminder)
                          : "c"(reminder), "b"(divisor));
     return res;
@@ -26,7 +26,7 @@ int32_t TInteger::Sub(int32_t a, int32_t b) const throw(TOverflowException)
     bool Overflow;
     int32_t * Address = &b;
 
-    __asm__ __volatile__("call Sub\n"
+    __asm__ __volatile__("call Sub32\n"
                          : "=a"(Overflow), "=c"(Address)
                          : "c"(Address), "d"(a));
 
@@ -43,7 +43,7 @@ int32_t TInteger::Sum(int32_t a, int32_t b) const throw(TOverflowException)
     bool Overflow;
     int32_t * Address = &b;
 
-    __asm__ __volatile__("call Sum\n"
+    __asm__ __volatile__("call Sum32\n"
                          : "=a"(Overflow), "=c"(Address)
                          : "c"(Address), "d"(a));
 

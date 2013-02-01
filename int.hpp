@@ -11,8 +11,8 @@
 #include <sys/types.h>
 #include "except.hpp"
 
-bool fastcall Sum(int32_t * a, int32_t b);
-int32_t fastcall Div(int32_t * dividend, int32_t divisor);
+bool fastcall Sum32(int32_t * a, int32_t b);
+int32_t fastcall Div32(int32_t * dividend, int32_t divisor);
 
 class TInteger
 {

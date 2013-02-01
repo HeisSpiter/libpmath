@@ -1,8 +1,8 @@
 	.intel_syntax noprefix
 	.text
-.globl Sum
-	.type	Sum, @function
-Sum:
+.globl Sum32
+	.type	Sum32, @function
+Sum32:
 	/* Setup stack */
 	push	ebp
 	mov		ebp, esp
@@ -24,11 +24,11 @@ Sum:
 	pop		ebx
 	leave
 	ret
-	.size Sum, .-Sum
+	.size Sum32, .-Sum32
 
-.globl Sub
-	.type	Sub, @function
-Sub:
+.globl Sub32
+	.type	Sub32, @function
+Sub32:
 	/* Setup stack */
 	push	ebp
 	mov		ebp, esp
@@ -45,21 +45,21 @@ Sub:
 	/* Set overflow if any */
 	seto	al
 	/* Check sign and jump */
-	js		SubRet
+	js		Sub32Ret
 	/* Set negative sign */
 	neg		ebx
-SubRet:
+Sub32Ret:
 	/* Return the result in the buffer */
 	mov		[ecx], ebx
 	/* End of the function */
 	pop		ebx
 	leave
 	ret
-	.size Sub, .-Sub
+	.size Sub32, .-Sub32
 
-.globl Div
-	.type	Div, @function
-Div:
+.globl Div32
+	.type	Div32, @function
+Div32:
 	/* Setup stack */
 	push	ebp
 	mov		ebp, esp
@@ -77,4 +77,4 @@ Div:
 	pop		edx
 	leave
 	ret
-	.size Div, .-Div
+	.size Div32, .-Div32
