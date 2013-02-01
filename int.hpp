@@ -17,7 +17,7 @@ int32_t fastcall Div32(int32_t * dividend, int32_t divisor);
 class TInteger
 {
 private:
-    int fValue;
+    int32_t fValue;
 
 public:
     TInteger() { fValue = 0; }
